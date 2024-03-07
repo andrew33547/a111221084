@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">counter1</string>
+    <string name="inital_value">0</string>
+</resources>
