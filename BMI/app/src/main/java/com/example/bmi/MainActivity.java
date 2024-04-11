@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private TextView txvshow;
@@ -26,17 +27,21 @@ public class MainActivity extends AppCompatActivity {
         countBMI.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                double Height = Double.parseDouble(edtHeight.getText().toString());
-                double Weight = Double.parseDouble(edtWeight.getText().toString());
-                double BMI = Weight / Math.pow(Height / 100.0, 2);
-                if (BMI >= 24)
-                    txvshow.setTextColor(Color.RED);
-                else if (BMI < 18.5)
-                    txvshow.setTextColor(Color.BLUE);
-                else
-                    txvshow.setTextColor(Color.GREEN);
+                try {
+                    double Height = Double.parseDouble(edtHeight.getText().toString());
+                    double Weight = Double.parseDouble(edtWeight.getText().toString());
+                    double BMI = Weight / Math.pow(Height / 100.0, 2);
+                    if (BMI >= 24)
+                        txvshow.setTextColor(Color.RED);
+                    else if (BMI < 18.5)
+                        txvshow.setTextColor(Color.BLUE);
+                    else
+                        txvshow.setTextColor(Color.GREEN);
 
-                txvshow.setText(String.format("%2f", BMI));
+                    txvshow.setText(String.format("%2f", BMI));
+                } catch (NumberFormatException e) {
+                    Toast.makeText(MainActivity.this, "請輸入數值", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         btnClear.setOnClickListener(new View.OnClickListener() {
