@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -24,6 +25,10 @@ public class MainActivity extends AppCompatActivity {
 
                 RadioButton boy = (RadioButton) findViewById(R.id.rdbBoy);
                 RadioButton girl = (RadioButton) findViewById(R.id.rdbGirl);
+                EditText editText = findViewById(R.id.editTextNumber);
+                String quantityStr = editText.getText().toString();
+                int quantity = Integer.parseInt(quantityStr);
+
                 if (boy.isChecked())
                     outputStr +="男生\n";
                 else if (girl.isChecked())
@@ -42,12 +47,16 @@ public class MainActivity extends AppCompatActivity {
 //                        break;
 //
 //                }
+                int z = 500;
                 if (type.getCheckedRadioButtonId() == R.id.rdbAdult)
                     outputStr += "全票\n";
                 else if (type.getCheckedRadioButtonId() == R.id.rdbChild)
                     outputStr += "兒童票\n";
                 else
-                outputStr += "學生票\n";
+                    outputStr += "學生票\n";
+
+                int amount = quantity * z;
+                outputStr += "張數: " + quantity + "\n";
                 TextView output = (TextView) findViewById(R.id.lblOutput);
                 output.setText(outputStr);
 
