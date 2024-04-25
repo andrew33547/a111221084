@@ -4,8 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.ConstraintSet;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
@@ -33,10 +36,12 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
     @Override
     public boolean onTouch(View v, MotionEvent event) {
         int act = event.getAction();
+        Vibrator vb =(Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         switch (act) {
             case MotionEvent.ACTION_DOWN:
                 txvOutput.setText("ACTION_DOWN");
                 txvOutput.setTextColor(Color.RED);
+                vb.vibrate(VibrationEffect.createOneShot(2000,20));
                 break;
 
             case MotionEvent.ACTION_UP:
