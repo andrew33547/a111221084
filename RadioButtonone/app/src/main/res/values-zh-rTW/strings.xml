@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BuyTickets2024</string>
+    <string name="male">男性</string>
+    <string name="female">女性</string>
+    <string name="regularticket">成人票</string>
+    <string name="childticket">兒童票</string>
+    <string name="studentticket">學生票</string>
+    <string name="confirm">選擇</string>
+    <string name="numberOfTickets">門票數量</string>
+    <string name="ticketTYpe">票種</string>
+    <string name="gender">性別</string>
+    <string name="total">總計</string>
+</resources>
