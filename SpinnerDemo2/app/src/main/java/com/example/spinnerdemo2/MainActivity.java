@@ -28,9 +28,28 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         sp.setOnItemSelectedListener(this);
     }
 
+
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
+    int v1, v2;
+    double r = 0.0;
+    v1 = Integer.parseInt(opd1.getText().toString());
+    v2 = Integer.parseInt(opd2.getText().toString());
+    switch (position){
+        case 0:
+            r = v1 + v2;
+            break;
+        case 1:
+            r = v1 - v2;
+            break;
+        case 2:
+            r = v1 * v2;
+            break;
+        case 3:
+            r = v1 / v2;
+            break;
+    }
+    output.setText("運算結果 = "+String.format("%.2f",r));
     }
 
     @Override
